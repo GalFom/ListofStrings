@@ -13,15 +13,26 @@ public class Queue {
         } else {
             QueueItem newItem = new QueueItem();
             newItem.item = arg;
-            newItem.next = newItem.next;
-            //newItem.prev=item;
+            newItem.prev = begin;
+            newItem.next = null;
+            begin.next = newItem;
             begin = newItem;
-            end = newItem;
-            //заполнить поля
         }
     }
 
     public String take() {
-        return "";
+        if (begin == null) {
+            return null;
+        }
+        if (begin == end) {
+            String elem = begin.item;
+            begin = null;
+            end = null;
+            return elem;
+        }
+        String elem2 = begin.item;
+        begin = begin.prev;
+        begin.next = null;
+        return elem2;
     }
 }

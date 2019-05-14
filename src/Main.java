@@ -5,6 +5,7 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             queue.add("String" + i);
         }
+
         while (true) {
             String str = queue.take();
             if (str != null) {
